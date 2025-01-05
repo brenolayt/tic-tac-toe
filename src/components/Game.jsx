@@ -47,16 +47,23 @@ export default function HomeScreen() {
             setWinner(gameWinner);
             setTimeout(() => {
                 alert(`${gameWinner} won!`);
+                return;
             }, 100);
         }
 
-        if (count == 9) alert("Draw!");
+        if (count == 9) {
+            setWinner("none");
+
+            setTimeout(() => {
+                alert("Draw!");
+            }, 100);
+        };
 
         setCurrentP(currentPlayer == "X" ? "O" : "X");
     }
 
     return (
-        <div className="h-3/4 w-3/6 bg-slate-50 rounded-xl grid grid-cols-3 grid-rows-3">
+        <div className="h-3/4 w-3/6 rounded-xl grid grid-cols-3 grid-rows-3">
             {gameArr.map((el, index) => {
                 return <GameTile key={index} onClick={() => handleClick(index)}>{el}</GameTile>
             })}
