@@ -1,11 +1,10 @@
 import './App.css'
+import Game from './components/Game';
 
 function App() {
   return (
     <main className="h-screen w-full bg-slate-900 flex justify-center items-center">
-      <div className="h-4/5 w-3/5 bg-white">
-        
-      </div>
+      <Game></Game>
     </main>
   );
 }
