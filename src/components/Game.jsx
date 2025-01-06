@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GameTile from "./GameTile";
+import Player from "./Player";
 
 
 export default function HomeScreen() {
@@ -63,8 +64,11 @@ export default function HomeScreen() {
     }
 
     return (
-        <div className="h-3/4 w-3/6 rounded-xl grid grid-rows-[1fr_3fr] bg-zinc-950 place-items-center p-8">
-            <h1 className="text-white text-4xl">Teste</h1>
+        <div className="h-3/4 w-3/6 rounded-sm grid grid-rows-[1fr_3fr] bg-slate-400 shadow-2xl place-items-center p-8">
+            <ul className="flex w-3/4 h-2/4 border-2 justify-between p-4">
+                <Player name="player 1" symbol="X"/>
+                <Player name="player 2" symbol="O"/>
+            </ul>
             <div className="h-full w-3/4 rounded-xl grid grid-rows-3 grid-cols-3">
                 {gameArr.map((el, index) => {
                     return <GameTile key={index} onClick={() => handleClick(index)}>{el}</GameTile>
