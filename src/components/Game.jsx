@@ -47,8 +47,8 @@ export default function HomeScreen() {
             setWinner(gameWinner);
             setTimeout(() => {
                 alert(`${gameWinner} won!`);
-                return;
             }, 100);
+            return;
         }
 
         if (count == 9) {
