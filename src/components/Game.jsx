@@ -63,10 +63,13 @@ export default function HomeScreen() {
     }
 
     return (
-        <div className="h-3/4 w-3/6 rounded-xl grid grid-cols-3 grid-rows-3">
-            {gameArr.map((el, index) => {
-                return <GameTile key={index} onClick={() => handleClick(index)}>{el}</GameTile>
-            })}
+        <div className="h-3/4 w-3/6 rounded-xl grid grid-rows-[1fr_3fr] bg-zinc-950 place-items-center p-8">
+            <h1 className="text-white text-4xl">Teste</h1>
+            <div className="h-full w-3/4 rounded-xl grid grid-rows-3 grid-cols-3">
+                {gameArr.map((el, index) => {
+                    return <GameTile key={index} onClick={() => handleClick(index)}>{el}</GameTile>
+                })}
+            </div>
         </div>
     );
 }
