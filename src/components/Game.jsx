@@ -12,6 +12,7 @@ export default function HomeScreen() {
     const [winner, setWinner] = useState(null);
     const [count, setCount] = useState(1);
     const [currentPlayer, setCurrentP] = useState("X");
+    const [playerTurn, setPlayerTurn] = useState(true);
 
     function checkWin(arr) {
         const winningCombinations = [
@@ -61,13 +62,14 @@ export default function HomeScreen() {
         };
 
         setCurrentP(currentPlayer == "X" ? "O" : "X");
+        setPlayerTurn(prevValue => !prevValue);
     }
 
     return (
-        <div className="h-3/4 w-3/6 rounded-sm grid grid-rows-[1fr_3fr] bg-slate-400 shadow-2xl place-items-center p-8">
-            <ul className="flex w-full h-2/4 justify-between p-4">
-                <Player name="PLAYER 1" symbol="X"/>
-                <Player name="PLAYER 2" symbol="O"/>
+        <div className="h-3/4 w-3/6 rounded-sm grid grid-rows-[1fr_3fr] bg-slate-300 shadow-2xl place-items-center p-8">
+            <ul className="grid w-full h-3/4 grid-cols-2 place-items-center">
+                <Player name="PLAYER 1" symbol="X" isActive={playerTurn}/>
+                <Player name="PLAYER 2" symbol="O" isActive={!playerTurn} />
             </ul>
             <div className="h-full w-3/4 rounded-xl grid grid-rows-3 grid-cols-3">
                 {gameArr.map((el, index) => {
